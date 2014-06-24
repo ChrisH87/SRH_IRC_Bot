@@ -1,7 +1,7 @@
 /*
 	Projectname:	SRH_IRC_Bot
 	Author:			Christian Hauck
-	Subject:		Linux Programming
+	Subject:		Linux programming
 */
 
 #include "SRH_IRC_Bot.h"
@@ -30,6 +30,37 @@ bool help;
 
 int main(int argc, char** argv)
 {
-	ParseOptions(argc, argv);
+	Options(argc, argv);
 
+	if (user == null || chan == null || server == null || password == null)
+		Help));
+
+	if (help)
+		return 0;
+}
+
+void Options(int argc, char** argv)
+{
+	int opt = 0;
+	while ((opt = getopt(argc, argv, "u:c:s:p:h::")) != -1)
+	{
+		switch (opt)
+		{
+		case 'u': user = optarg; break;
+		case 'c': chan = optarg; break;
+		case 's': server = optarg; break;
+		case 'p': password = optarg; break;
+		case 'h': Help(); break;
+		}
+	}
+}
+
+void Help()
+{
+	help = true;
+	printf("Instructions: \n");
+	printf("\t-u User \n");
+	printf("\t-c Chan \n");
+	printf("\t-s Server \n");
+	printf("\t-p Password \n");
 }
