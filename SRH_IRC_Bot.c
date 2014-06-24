@@ -24,7 +24,8 @@ char* server;
 char* password;
 
 irc_callbacks_t callbacks;
-
+irc_session_t *s;
+irc_ctx_t ctx;
 
 bool help;
 
@@ -42,8 +43,35 @@ int main(int argc, char** argv)
 
 	IrcEvents();
 
+	ctx.nick = user;
+	ctx.password = password;
+	ctx.channel = chan;
+
+	s = irc_create_session(&callbacks);
+
+	if (!s)
+	{
+		printf("Error!\n");
+		return 1;
+	}
+
+	irc_set_ctx(s, &ctx);
+	irc_option_set(s, LIBIRC_OPTION_STRIPNICKS);
+
+	// Connecting with Server
+
+	if (irc_connect(s, server, 6667, 0, user, 0, 0))
+	{
+		printf("Could not connect!\n");
+		return 1;
+	}
+
+	irc_run(s);
+
 	return 0;
 }
+
+// Setting options
 
 void Options(int argc, char** argv)
 {
@@ -61,6 +89,8 @@ void Options(int argc, char** argv)
 	}
 }
 
+// Helpfunction
+
 void Help()
 {
 	help = true;
@@ -71,6 +101,8 @@ void Help()
 	printf("\t-p Password \n");
 }
 
+//IRC Events
+
 void IrcEvents()
 {
 	callbacks.event_connect = event_connect;
@@ -80,4 +112,12 @@ void IrcEvents()
 	callbacks.event_privmsg = event_privmsg;
 	callbacks.event_topic = event_topic;
 	callbacks.event_channel = event_channel;
+}
+
+// Connection
+
+void event_connect(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
+{
+	irc_ctx_t* ctx = (irc_ctx_t*)irc_get_ctx(session);
+	irc_cmd_join(session, ctx->channel, 0);
 }
