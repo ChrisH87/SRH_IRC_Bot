@@ -23,7 +23,7 @@ char* chan;
 char* server;
 char* password;
 
-
+irc_callbacks_t callbacks;
 
 
 bool help;
@@ -33,10 +33,16 @@ int main(int argc, char** argv)
 	Options(argc, argv);
 
 	if (user == null || chan == null || server == null || password == null)
-		Help));
+		Help();
 
 	if (help)
 		return 0;
+
+	memset($callbacks, 0, sizeof(callbacks));
+
+	IrcEvents();
+
+	return 0;
 }
 
 void Options(int argc, char** argv)
@@ -60,7 +66,18 @@ void Help()
 	help = true;
 	printf("Instructions: \n");
 	printf("\t-u User \n");
-	printf("\t-c Chan \n");
+	printf("\t-c Channel \n");
 	printf("\t-s Server \n");
 	printf("\t-p Password \n");
+}
+
+void IrcEvents()
+{
+	callbacks.event_connect = event_connect;
+	callbacks.event_join = event_join;
+	callbacks.event_part = event_part;
+	callbacks.event_nick = event_nick;
+	callbacks.event_privmsg = event_privmsg;
+	callbacks.event_topic = event_topic;
+	callbacks.event_channel = event_channel;
 }
