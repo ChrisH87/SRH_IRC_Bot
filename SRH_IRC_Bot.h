@@ -6,4 +6,6 @@ void Help();
 
 void IrcEvents();
 
+void Daemon();
+
 #endif

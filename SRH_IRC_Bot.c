@@ -38,6 +38,8 @@ typedef struct
 
 bool help;
 
+bool daemon;
+
 int main(int argc, char** argv)
 {
 	Options(argc, argv);
@@ -47,6 +49,9 @@ int main(int argc, char** argv)
 
 	if (help)
 		return 0;
+
+	if (daemon)
+		Daemon();
 
 	sqlite3_open("ircbot_db.db", &dDatabase);
 
@@ -87,7 +92,7 @@ int main(int argc, char** argv)
 void Options(int argc, char** argv)
 {
 	int opt = 0;
-	while ((opt = getopt(argc, argv, "u:c:s:p:h::")) != -1)
+	while ((opt = getopt(argc, argv, "u:c:s:p:d:h::")) != -1)
 	{
 		switch (opt)
 		{
@@ -95,6 +100,7 @@ void Options(int argc, char** argv)
 		case 'c': channel = optarg; break;
 		case 's': server = optarg; break;
 		case 'p': password = optarg; break;
+		case 'd': daemon = true; break;
 		case 'h': Help(); break;
 		}
 	}
@@ -110,6 +116,29 @@ void Help()
 	printf("\t-c Channel \n");
 	printf("\t-s Server \n");
 	printf("\t-p Password \n");
+	printf("\t-d Daemon \n");
+}
+
+//Daemon
+
+void Daemon()
+{
+	pid_t pid, sid;
+	if (getppid() == 1) return;
+	pid = fork();
+	if (pid<0) exit(1);
+
+	if (pid>0) exit(0);
+
+	umask(0);
+	sid = setsid();
+	if (sid < 0) exit(1);
+
+	if ((chdir("/") < 0)) exit(1);
+
+	freopen("/dev/null", "r", stdin);
+	freopen("/dev/null", "w", stdout);
+	freopen("/dev/null", "w", stderr);
 }
 
 //IRC Events
