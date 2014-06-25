@@ -200,3 +200,31 @@ void event_privmsg(irc_session_t* session, const char* event, const char* origin
 		irc_cmd_msg(session, origin, "-logfile : Creates a Log File");
 	}
 }
+
+
+//Channel Event
+
+
+void event_channel(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
+{
+	char str_insert[10000];
+	sprintf(str_insert, "INSERT INTO log_irc (User, Channel, Message, InsertDate, InsertTime) Values ('%s', '%s', '%s', date('now'), time('now'))", origin, params[0]], params[1]);
+	sqlite3_exec(Database, str_insert, 0, 0, 0);
+	printf("'%s' said in Channel %s this: %s\n",
+		origin ? origin : "One of the Channel",
+		params[0], params[1]);
+}
+
+
+//Topic Event
+
+
+void event_topic(irc_session_t * session, const char * event, const char * origin, const char** params, unsigned int count)
+{
+	if (count > 1) {
+		Com_Printf("IRC: %s changes topic on %s to %s\n", origin, params[0], params[1]);
+	}
+	else {
+		Com_Printf("IRC: %s changes topic on %s\n", origin, params[0]);
+	}
+}

@@ -4,4 +4,6 @@ void Options(int argc, char** argv);
 
 void Help();
 
+void IrcEvents();
+
 #endif
