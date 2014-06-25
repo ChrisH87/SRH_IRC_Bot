@@ -148,9 +148,55 @@ void event_join(irc_session_t* session, const char* event, const char* origin, c
 //Part Event
 
 
-void event_part(irc_session_t* session, const char* event, const char* origion, const char** params, unsigned int count)
+void event_part (irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
 {
 	char str_quit[500];
 	printf("User: '%s', has signed off\n", origin);
 	sprintf(str_quit, "INSERT INTO part_irc (user, channel, reason, partdate, parttime) VALUES('%s', '%s', '%s', date('now'), time('now'))", origin, params[0], params[1]);
 	sqlite3_exec(Database, str_quit, 0, 0, 0);
+}
+
+// Nick Event
+
+void event_nick(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
+{
+	Com_Printf("IRC: Nick event, from %s to %s\n", params[0], params[1]);
+}
+
+
+//PM Event
+
+
+void event_privmsg(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
+{
+	printf("'%s' said '%s' to you\n", origin, params[1]);
+
+	if (strcmp(params[1], "-hi") == 0)
+	{
+		printf("Private Message!\n");
+		irc_cmd_msg(session, origin, "I respond to private messages");
+	}
+
+	if (strcmp(params[1], "-login") == 0)
+	{
+		strcpy(global_origin, origin);
+		sqlite3_exec(Database, "Select partdate from join_irc order by rowid desc limit 1", SQLCallback, 0, 0);
+		printf(global_origin);
+		fflush(stdout);
+	}
+
+	if (strcmp(params[1], "-logfile") == 0)
+	{
+		log_file = fopen("log.txt", "w");
+		sqlite3_exec(Database, "Select * From join_irc", SQLCallback_File, 0, 0);
+		fclose(log_file);
+	}
+
+	if (strcmp(params[1], "-help") == 0)
+	{
+		irc_cmd_msg(session, origin, "-hi : response");
+		irc_cmd_msg(session, origin, "-login : show Days");
+		irc_cmd_msg(session, origin, "-help : Show this message");
+		irc_cmd_msg(session, origin, "-logfile : Creates a Log File");
+	}
+}
