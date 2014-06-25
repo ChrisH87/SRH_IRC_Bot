@@ -228,3 +228,37 @@ void event_topic(irc_session_t * session, const char * event, const char * origi
 		Com_Printf("IRC: %s changes topic on %s\n", origin, params[0]);
 	}
 }
+
+
+//Output with sqlite3
+
+
+static int SQLCallback(void *NotUsed, int argc, char **argv, char **azColName)
+{
+	int i;
+	for (i = 0; i < argc; i++)
+	{
+		char str_sql[500];
+		sprintf(str_sql, "%s : %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		irc_cmd_msg(s, global_origin, str_sql);
+	}
+	printf("\n");
+	fflush(stdout);
+	return 0;
+}
+
+
+//Output with Filesystem
+
+
+static int SQLCallback_File(void *NotUsed, int argc, char **argv, char **azColName)
+{
+	int i;
+	for (i = 0; i < argc; i++)
+	{
+		fprintf(log_file, "%s : %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		printf("%s : %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+	}
+	printf("\n");
+	return 0;
+}
