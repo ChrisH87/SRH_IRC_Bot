@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include "libircclient.h"
+#include <libirc_events.h>
 
 struct sqlite3* Database;
 
