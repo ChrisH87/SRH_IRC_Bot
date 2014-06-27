@@ -1,0 +1,27 @@
+"SRH_IRC_Bot" "27.06.2014" Christian Hauck" "DOCUMENTATION"
+
+.SH
+NAME
+SRH IRC BOT
+
+.SH
+SYNTAX
+\fB make install \fR
+
+.SH
+Discription
+The bot is compiled in the folder and is controlled with
+./Bot -options
+
+.SH
+Options
+"s" Server
+"c" Channel
+"u" Username
+"p" Password
+"d" Daemon
+"h" Hilfe
+
+.SH
+Autor
+Christian Hauck

@@ -1,0 +1,1 @@
+License Christian Hauck, Libirc und sqlite3

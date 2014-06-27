@@ -1,6 +1,16 @@
-# Libs 
-LIBS = -L../libircclient-1.6/src/ -lircclient -lpthread -lnsl
-INCLUDES = -I../libircclient-1.6/include/
+# Variables
+Version = libircclient-1.6
 
-Bot: SRH_IRC_Bot.c
-	gcc -o Bot SRH_IRC_Bot.c -lsqlite3 $(LIBS) $(INCLUDES)
+all: delete install
+
+# delete
+delete:
+	rm $(Version).tar.gz
+	rm -r $(Version)
+
+# download and installation
+install:
+	wget http://sourceforge.net/projects/libircclient/files/libircclient/1.6/libircclient-1.6.tar.gz
+	tar -zxf $(Version).tar.gz
+	cd $(Version); ./configure; make; cd -
+	cd SRH_IRC_Bot; make; cd -

@@ -1,0 +1,218 @@
+\hypertarget{_s_r_h___i_r_c___bot_8c}{\section{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot/\+S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.c File Reference}
+\label{_s_r_h___i_r_c___bot_8c}\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot/\+S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot/\+S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+}
+{\ttfamily \#include \char`\"{}S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sqlite3.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}libircclient.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$libirc\+\_\+events.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbool}{bool}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_s_r_h___i_r_c___bot_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a21d944c08a70a1d4a17a55a406e4652a}{Options} (int argc, char $\ast$$\ast$argv)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a54d17a6d0bb758f26b9dda4c6d8e8da8}{Help} ()
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_aeca9965a1179627bcbc5f0342952ad71}{Daemon} ()
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a8bbe5e8ce2cf0a4c163b44837c7debe1}{Irc\+Events} ()
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a16fff293c8b50f13dc8ac4852a8f975e}{event\+\_\+connect} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_ab06113e3e2ae5140242ff7c15937ad17}{event\+\_\+join} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a066d604924113dc5698e117a6c2149da}{event\+\_\+part} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a7bb22c3e946118db0e33520097c064c6}{event\+\_\+nick} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a7ec10a98f038c2b01f2630ad06caa9de}{event\+\_\+privmsg} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a47003e205a689e88df1c189a3a25bb0e}{event\+\_\+channel} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\item 
+void \hyperlink{_s_r_h___i_r_c___bot_8c_a4ba3a96dfdb89839db2b1254480126d3}{event\+\_\+topic} (irc\+\_\+session\+\_\+t $\ast$session, const char $\ast$event, const char $\ast$origin, const char $\ast$$\ast$params, unsigned int count)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct sqlite3 $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_aa2f9c1c7ff0cd564fda3afe5d00e7a7a}{Database}
+\item 
+char $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_a9b20c006bd90a09e1465fb668700e81d}{username}
+\item 
+char $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_a842ca2f026578e5c479c095ff3335969}{channel}
+\item 
+char $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_affeefede74d4b54c220f6a43dd2beabd}{server}
+\item 
+char $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_a59460a3ff2c12443d1022e5cc0fba85c}{password}
+\item 
+irc\+\_\+callbacks\+\_\+t \hyperlink{_s_r_h___i_r_c___bot_8c_a3c94120438791fec8a026683f6509205}{callbacks}
+\item 
+irc\+\_\+session\+\_\+t $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_aa13afaace31b61d5e176a9f93f5d1a9b}{s}
+\item 
+irc\+\_\+ctx\+\_\+t \hyperlink{_s_r_h___i_r_c___bot_8c_a65c0aa9477e56f99510c769ba8baada8}{ctx}
+\item 
+F\+I\+L\+E $\ast$ \hyperlink{_s_r_h___i_r_c___bot_8c_ab936051f5aaca44c6c3c41dee0d19c36}{log\+\_\+file}
+\item 
+\hyperlink{structbool}{bool} \hyperlink{_s_r_h___i_r_c___bot_8c_a7c64b27e9ca8a8ee9834802da582d25d}{daemon}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_s_r_h___i_r_c___bot_8c_aeca9965a1179627bcbc5f0342952ad71}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!Daemon@{Daemon}}
+\index{Daemon@{Daemon}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{Daemon}]{\setlength{\rightskip}{0pt plus 5cm}void Daemon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_aeca9965a1179627bcbc5f0342952ad71}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a47003e205a689e88df1c189a3a25bb0e}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+channel@{event\+\_\+channel}}
+\index{event\+\_\+channel@{event\+\_\+channel}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+channel}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+channel (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a47003e205a689e88df1c189a3a25bb0e}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a16fff293c8b50f13dc8ac4852a8f975e}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+connect@{event\+\_\+connect}}
+\index{event\+\_\+connect@{event\+\_\+connect}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+connect}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+connect (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a16fff293c8b50f13dc8ac4852a8f975e}
+\hypertarget{_s_r_h___i_r_c___bot_8c_ab06113e3e2ae5140242ff7c15937ad17}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+join@{event\+\_\+join}}
+\index{event\+\_\+join@{event\+\_\+join}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+join}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+join (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_ab06113e3e2ae5140242ff7c15937ad17}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a7bb22c3e946118db0e33520097c064c6}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+nick@{event\+\_\+nick}}
+\index{event\+\_\+nick@{event\+\_\+nick}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+nick}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+nick (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a7bb22c3e946118db0e33520097c064c6}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a066d604924113dc5698e117a6c2149da}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+part@{event\+\_\+part}}
+\index{event\+\_\+part@{event\+\_\+part}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+part}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+part (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a066d604924113dc5698e117a6c2149da}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a7ec10a98f038c2b01f2630ad06caa9de}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+privmsg@{event\+\_\+privmsg}}
+\index{event\+\_\+privmsg@{event\+\_\+privmsg}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+privmsg}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+privmsg (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a7ec10a98f038c2b01f2630ad06caa9de}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a4ba3a96dfdb89839db2b1254480126d3}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!event\+\_\+topic@{event\+\_\+topic}}
+\index{event\+\_\+topic@{event\+\_\+topic}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{event\+\_\+topic}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+topic (
+\begin{DoxyParamCaption}
+\item[{irc\+\_\+session\+\_\+t $\ast$}]{session, }
+\item[{const char $\ast$}]{event, }
+\item[{const char $\ast$}]{origin, }
+\item[{const char $\ast$$\ast$}]{params, }
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a4ba3a96dfdb89839db2b1254480126d3}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a54d17a6d0bb758f26b9dda4c6d8e8da8}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!Help@{Help}}
+\index{Help@{Help}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{Help}]{\setlength{\rightskip}{0pt plus 5cm}void Help (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a54d17a6d0bb758f26b9dda4c6d8e8da8}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a8bbe5e8ce2cf0a4c163b44837c7debe1}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!Irc\+Events@{Irc\+Events}}
+\index{Irc\+Events@{Irc\+Events}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{Irc\+Events}]{\setlength{\rightskip}{0pt plus 5cm}void Irc\+Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a8bbe5e8ce2cf0a4c163b44837c7debe1}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a3c04138a5bfe5d72780bb7e82a18e627}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!main@{main}}
+\index{main@{main}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a21d944c08a70a1d4a17a55a406e4652a}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!Options@{Options}}
+\index{Options@{Options}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{Options}]{\setlength{\rightskip}{0pt plus 5cm}void Options (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{_s_r_h___i_r_c___bot_8c_a21d944c08a70a1d4a17a55a406e4652a}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a3c94120438791fec8a026683f6509205}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!callbacks@{callbacks}}
+\index{callbacks@{callbacks}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{callbacks}]{\setlength{\rightskip}{0pt plus 5cm}irc\+\_\+callbacks\+\_\+t callbacks}}\label{_s_r_h___i_r_c___bot_8c_a3c94120438791fec8a026683f6509205}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a842ca2f026578e5c479c095ff3335969}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!channel@{channel}}
+\index{channel@{channel}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{channel}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ channel}}\label{_s_r_h___i_r_c___bot_8c_a842ca2f026578e5c479c095ff3335969}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a65c0aa9477e56f99510c769ba8baada8}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!ctx@{ctx}}
+\index{ctx@{ctx}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{ctx}]{\setlength{\rightskip}{0pt plus 5cm}irc\+\_\+ctx\+\_\+t ctx}}\label{_s_r_h___i_r_c___bot_8c_a65c0aa9477e56f99510c769ba8baada8}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a7c64b27e9ca8a8ee9834802da582d25d}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!daemon@{daemon}}
+\index{daemon@{daemon}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{daemon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} daemon}}\label{_s_r_h___i_r_c___bot_8c_a7c64b27e9ca8a8ee9834802da582d25d}
+\hypertarget{_s_r_h___i_r_c___bot_8c_aa2f9c1c7ff0cd564fda3afe5d00e7a7a}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!Database@{Database}}
+\index{Database@{Database}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{Database}]{\setlength{\rightskip}{0pt plus 5cm}struct sqlite3$\ast$ Database}}\label{_s_r_h___i_r_c___bot_8c_aa2f9c1c7ff0cd564fda3afe5d00e7a7a}
+\hypertarget{_s_r_h___i_r_c___bot_8c_ab936051f5aaca44c6c3c41dee0d19c36}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!log\+\_\+file@{log\+\_\+file}}
+\index{log\+\_\+file@{log\+\_\+file}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{log\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ log\+\_\+file}}\label{_s_r_h___i_r_c___bot_8c_ab936051f5aaca44c6c3c41dee0d19c36}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a59460a3ff2c12443d1022e5cc0fba85c}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!password@{password}}
+\index{password@{password}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{password}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ password}}\label{_s_r_h___i_r_c___bot_8c_a59460a3ff2c12443d1022e5cc0fba85c}
+\hypertarget{_s_r_h___i_r_c___bot_8c_aa13afaace31b61d5e176a9f93f5d1a9b}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!s@{s}}
+\index{s@{s}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{s}]{\setlength{\rightskip}{0pt plus 5cm}irc\+\_\+session\+\_\+t$\ast$ s}}\label{_s_r_h___i_r_c___bot_8c_aa13afaace31b61d5e176a9f93f5d1a9b}
+\hypertarget{_s_r_h___i_r_c___bot_8c_affeefede74d4b54c220f6a43dd2beabd}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!server@{server}}
+\index{server@{server}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ server}}\label{_s_r_h___i_r_c___bot_8c_affeefede74d4b54c220f6a43dd2beabd}
+\hypertarget{_s_r_h___i_r_c___bot_8c_a9b20c006bd90a09e1465fb668700e81d}{\index{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}!username@{username}}
+\index{username@{username}!S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c@{S\+R\+H\+\_\+\+I\+R\+C\+\_\+\+Bot.\+c}}
+\subsubsection[{username}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ username}}\label{_s_r_h___i_r_c___bot_8c_a9b20c006bd90a09e1465fb668700e81d}

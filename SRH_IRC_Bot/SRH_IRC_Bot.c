@@ -75,7 +75,9 @@ int main(int argc, char** argv)
 	irc_set_ctx(s, &ctx);
 	irc_option_set(s, LIBIRC_OPTION_STRIPNICKS);
 
-	// Connecting with Server
+/*
+ *	Connecting with Server
+ */ 
 
 	if (irc_connect(s, server, 6667, 0, user, 0, 0))
 	{
@@ -88,7 +90,9 @@ int main(int argc, char** argv)
 	return 0;
 }
 
-// Setting options
+/*
+*	Setting options
+*/
 
 void Options(int argc, char** argv)
 {
@@ -107,7 +111,9 @@ void Options(int argc, char** argv)
 	}
 }
 
-// Helpfunction
+/*
+*	Helpfunction
+*/
 
 void Help()
 {
@@ -120,7 +126,9 @@ void Help()
 	printf("\t-d Daemon \n");
 }
 
-//Daemon
+/*
+*	Daemon
+*/
 
 void Daemon()
 {
@@ -142,7 +150,9 @@ void Daemon()
 	freopen("/dev/null", "w", stderr);
 }
 
-//IRC Events
+/*
+*	IRC Events
+*/
 
 void IrcEvents()
 {
@@ -155,7 +165,9 @@ void IrcEvents()
 	callbacks.event_channel = event_channel;
 }
 
-// Connection
+/*
+*	Connection
+*/
 
 void event_connect(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
 {
@@ -163,7 +175,9 @@ void event_connect(irc_session_t* session, const char* event, const char* origin
 	irc_cmd_join(session, ctx->channel, 0);
 }
 
-//Join Event
+/*
+*	Join Event
+*/
 
 void event_join(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
 {
@@ -175,7 +189,9 @@ void event_join(irc_session_t* session, const char* event, const char* origin, c
 }
 
 
-//Part Event
+/*
+*	Part Event
+*/
 
 
 void event_part (irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
@@ -186,7 +202,9 @@ void event_part (irc_session_t* session, const char* event, const char* origin, 
 	sqlite3_exec(Database, str_quit, 0, 0, 0);
 }
 
-// Nick Event
+/*
+*	 Nick Event
+*/
 
 void event_nick(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
 {
@@ -194,7 +212,9 @@ void event_nick(irc_session_t* session, const char* event, const char* origin, c
 }
 
 
-//PM Event
+/*
+*	PM Event
+*/
 
 
 void event_privmsg(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
@@ -232,7 +252,9 @@ void event_privmsg(irc_session_t* session, const char* event, const char* origin
 }
 
 
-//Channel Event
+/*
+*	Channel Event
+*/
 
 
 void event_channel(irc_session_t* session, const char* event, const char* origin, const char** params, unsigned int count)
@@ -246,7 +268,9 @@ void event_channel(irc_session_t* session, const char* event, const char* origin
 }
 
 
-//Topic Event
+/*
+*	Topic Event
+*/
 
 
 void event_topic(irc_session_t * session, const char * event, const char * origin, const char** params, unsigned int count)
@@ -260,7 +284,9 @@ void event_topic(irc_session_t * session, const char * event, const char * origi
 }
 
 
-//Output with sqlite3
+/*
+*	Output with sqlite3
+*/
 
 
 static int SQLCallback(void *NotUsed, int argc, char **argv, char **azColName)
@@ -278,7 +304,9 @@ static int SQLCallback(void *NotUsed, int argc, char **argv, char **azColName)
 }
 
 
-//Output with Filesystem
+/*
+*	Output with Filesystem
+*/
 
 
 static int SQLCallback_File(void *NotUsed, int argc, char **argv, char **azColName)
